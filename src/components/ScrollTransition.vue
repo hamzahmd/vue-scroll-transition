@@ -3,8 +3,8 @@
     :is="as"
     ref="el"
     :class="[
-      'transition-all duration-500',
-      moreDelay ? 'delay-500' : 'delay-300',
+      'transition-all duration-700',
+      moreDelay ? 'delay-700' : 'delay-300',
       trueCount < 1 && translateEffect
         ? isVisible
           ? transtionPosition[transition].from
@@ -22,44 +22,44 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from "vue";
-import { useElementVisibility } from "@vueuse/core";
+import { ref, watchEffect } from 'vue'
+import { useElementVisibility } from '@vueuse/core'
 
 type ObjectKeyPair = {
   [key: string]: {
-    [key: string]: string;
-  };
-};
+    [key: string]: string
+  }
+}
 
-const el = ref(null);
-const isVisible = useElementVisibility(el);
-const trueCount = ref(0);
+const el = ref(null)
+const isVisible = useElementVisibility(el)
+const trueCount = ref(0)
 
 watchEffect(() => {
   if (isVisible.value && trueCount.value < 1) {
-    trueCount.value++;
+    trueCount.value++
   }
-});
+})
 
 const transtionPosition: ObjectKeyPair = {
-  vertical: { from: "translate-y-0", to: "translate-y-12" },
-  horizontalToRight: { from: "-translate-x-0", to: "-translate-x-12" },
-  horizontalToLeft: { from: "translate-x-0", to: "translate-x-12" },
-};
+  vertical: { from: 'translate-y-0', to: 'translate-y-12' },
+  horizontalToRight: { from: '-translate-x-0', to: '-translate-x-12' },
+  horizontalToLeft: { from: 'translate-x-0', to: 'translate-x-12' },
+}
 
 type TransitionTypes = {
-  translateEffect?: boolean;
-  opacityEffect?: boolean;
-  moreDelay?: boolean;
-  transition?: "vertical" | "horizontalToRight" | "horizontalToLeft";
-  as?: string;
-};
+  translateEffect?: boolean
+  opacityEffect?: boolean
+  moreDelay?: boolean
+  transition?: 'vertical' | 'horizontalToRight' | 'horizontalToLeft'
+  as?: string
+}
 
 withDefaults(defineProps<TransitionTypes>(), {
   translateEffect: true,
   opacityEffect: true,
   moreDelay: false,
-  transition: "vertical",
-  as: "div",
-});
+  transition: 'vertical',
+  as: 'div',
+})
 </script>

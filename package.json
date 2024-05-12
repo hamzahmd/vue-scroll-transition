@@ -1,13 +1,18 @@
 {
-  "name": "vue-scroll-transition-new",
+  "name": "vue-scroll-transition",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Hamza Ahmad",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "format": "prettier \"components/**\" \"pages/**\" \"layouts/**\" --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hamzahmd/vue-scroll-transition.git"
   },
   "dependencies": {
     "@vueuse/core": "^10.9.0",
